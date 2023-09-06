@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\PC\Desktop\PERSO\expense_tracker_cpp\build\CMakeFiles\5a262f2de00455f50dadc415d0d680b4\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D0363EBB-4462-38A0-B3A6-411508DE46FE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

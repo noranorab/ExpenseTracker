@@ -1,0 +1,3 @@
+C:/Users/PC/Desktop/PERSO/expense_tracker_cpp/CMakeFiles/EXPENSE_TRACKER_CPP.dir
+C:/Users/PC/Desktop/PERSO/expense_tracker_cpp/CMakeFiles/edit_cache.dir
+C:/Users/PC/Desktop/PERSO/expense_tracker_cpp/CMakeFiles/rebuild_cache.dir
