@@ -14,12 +14,9 @@ class User {
         void setPassword(char* password);
         int getAmount();
         void setAmount(const int& amount);
-        std::vector<Habit> getHabits() const;
     
     private:
         int amount;
         std::string username;
         std::string password;
-        std::vector<Habit> habits;
-
 };
