@@ -13,7 +13,7 @@ class User {
 
         void setPassword(char* password);
         int getAmount();
-        void setAmount(int amount);
+        void setAmount(const int& amount);
         std::vector<Habit> getHabits() const;
     
     private:

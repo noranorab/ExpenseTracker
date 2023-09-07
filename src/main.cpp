@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <vector>
+#include <iterator>
+#include <fstream>
 
 #include "..\include\habit.h"
 #include "..\include\user.h"
@@ -10,7 +12,29 @@
 using namespace std;
 
 
-bool check_credentials(string username, string password);
+bool check_credentials(const string& username, const string& password){
+    ifstream cred_file("credentials.txt");
+
+    if (!cred_file) {
+        cerr << "Error opening the file." << endl;
+        return false; // Unable to open the file.
+    }
+
+    istream_iterator<string> start(cred_file), end;
+    vector<string> credentials(start, end);
+    for (auto it = credentials.begin(); it != credentials.end(); ++it){
+        if (*it == username){
+            ++it;
+            if (it != credentials.end() && *it == password) {
+                cout << "You are connected\n";
+                return true;
+            }
+        }
+    }
+    cout << "Credentials are incorrect. Try again...";
+    return false;
+
+};
 
 int main()
 {
@@ -20,18 +44,23 @@ int main()
     cout << "\nEnter your password : " << endl;
     cin >> password;
     cout << endl;
+    int account;
+    
+    cout << "How much do you have? \n";
+    cin >> account;
 
-    cout << "\t\t\tLabel\tAmount\tCREDIT\tDEBIT\tAccount" << endl;
-    cout << "\t\t\t\t0" << "\tCREDIT\tDEBIT\t"<< 0 << endl;
-    cout << "Enter your spendings :\n";
-    while (true){
-      
-        User user("username", "password");
+    ofstream outFile("records.txt");
+    
+
+    
+    while (check_credentials(username, password)){
+        cout << "\t\t\tLabel\tAmount\tCREDIT\tDEBIT\tAccount" << endl;
+        cout << "Enter your spendings :\n";
+        User user(username, password);
         string label = " ";
-        int amount = 0;
         string type;
-        user.setAmount(2000);
-        int account = user.getAmount();
+        user.setAmount(account);
+        int amount;
         cin >> label >> amount >> type;
         
 
@@ -44,6 +73,9 @@ int main()
         }
         cout << "\t\t\t" << label << "\t" << amount << "\t" << type <<"\t\t" << account;
         cout << endl;
+        
+        outFile << label << "\t" << amount << "\t" << type <<"\t\t" << account << endl;
+
 
         string choice;
         cout << "terminate ? press yes or no\n";
@@ -55,4 +87,5 @@ int main()
         //vector<Habit> userHabits = user.getHabits();
 
     }
+    outFile.close();
 }

@@ -1,0 +1,2 @@
+achat	200	CREDIT		1800
+vente	100	DEBIT		1900

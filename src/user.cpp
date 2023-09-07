@@ -10,6 +10,6 @@ void User::setPassword(char* password){
 }
 
 int User::getAmount(){ return this->amount; }
-void User::setAmount(int amount){ this->amount = amount;}
+void User::setAmount(const int& amount){ this->amount = amount;}
 
 std::vector<Habit> User::getHabits() const { return this->habits; }
